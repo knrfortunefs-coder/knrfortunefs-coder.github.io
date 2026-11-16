@@ -58,7 +58,7 @@
   gtag('config', 'G-R48CWG2GEP');
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Ramabhadra&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy-900:#081527;
@@ -468,16 +468,18 @@
 
   /* ---------- CAREERS ---------- */
   #careers{background:var(--cream);}
-  .career-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:start;}
+  .career-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) 290px minmax(0,1fr);grid-template-areas:"form video benefits";gap:28px;align-items:start;}
   .career-wrap > *{min-width:0;}
-  .career-video{max-width:320px;margin:0 auto 44px;aspect-ratio:9/16;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:var(--navy-900);}
+  .career-video{grid-area:video;width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:var(--navy-900);}
   .career-video iframe{width:100%;height:100%;border:0;display:block;}
-  .career-form{background:var(--white);border:1px solid var(--cream-dark);border-radius:18px;padding:34px;box-shadow:0 18px 40px -24px rgba(8,21,39,.35);width:100%;box-sizing:border-box;}
+  .career-form{grid-area:form;background:var(--white);border:1px solid var(--cream-dark);border-radius:18px;padding:34px;box-shadow:0 18px 40px -24px rgba(8,21,39,.35);width:100%;box-sizing:border-box;}
   .career-form .form-group:last-of-type{margin-bottom:10px;}
+  .career-form .form-actions{flex-direction:column;align-items:stretch;}
+  .career-form .form-actions .btn{width:100%;white-space:normal;text-align:center;}
   .btn-outline-navy{border-color:var(--navy-800);color:var(--navy-800);background:transparent;}
   .btn-outline-navy:hover{background:var(--navy-800);color:var(--white);}
   #careerStatus{margin-top:14px;font-size:.88rem;font-weight:600;display:none;}
-  .career-benefits{background:linear-gradient(155deg,var(--navy-800) 0%,var(--navy-900) 70%);color:var(--white);border:1px solid rgba(226,197,101,.3);border-radius:18px;padding:34px;box-shadow:var(--shadow);}
+  .career-benefits{grid-area:benefits;background:linear-gradient(155deg,var(--navy-800) 0%,var(--navy-900) 70%);color:var(--white);border:1px solid rgba(226,197,101,.3);border-radius:18px;padding:34px;box-shadow:var(--shadow);}
   .career-benefits h3{font-size:1.4rem;color:var(--white);margin-bottom:20px;}
   .career-benefits ul{display:flex;flex-direction:column;gap:16px;}
   .career-benefits li{display:flex;align-items:flex-start;gap:14px;}
@@ -486,6 +488,15 @@
   .career-benefits li b{display:block;font-size:.95rem;font-weight:600;color:var(--white);}
   .career-benefits li div span{display:block;font-size:.8rem;color:var(--muted-light);}
 
+  @media(max-width:1100px){
+    .career-wrap{grid-template-columns:1fr 1fr;grid-template-areas:"video video" "form benefits";}
+    .career-video{max-width:300px;margin:0 auto;}
+  }
+  @media(max-width:820px){
+    .career-wrap{grid-template-columns:1fr;grid-template-areas:"video" "form" "benefits";}
+  }
+  #careers, #careers .te, #careers label, #careers input, #careers select, #careers button, #careers .eyebrow, #careers .career-benefits b{font-family:'Poppins','Ramabhadra',sans-serif;}
+  #careers h2, #careers .career-benefits h3{font-family:'Playfair Display','Ramabhadra',serif;}
   /* ---------- HOW IT WORKS ---------- */
   #how{background:var(--white);}
   .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -528,7 +539,6 @@
     .svc-grid{grid-template-columns:repeat(2,1fr);}
     .why-grid{grid-template-columns:repeat(2,1fr);}
     .ql-grid{grid-template-columns:repeat(2,1fr);}
-    .career-wrap{grid-template-columns:1fr;}
     .how-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto;}
     .mf-points{grid-template-columns:repeat(2,1fr);}
     .testi-grid{grid-template-columns:repeat(2,1fr);}
@@ -1445,9 +1455,6 @@
       <h2 class="section-title">Join Our Team · మా టీమ్‌లో చేరండి</h2>
       <p class="section-sub"><span class="te">ఆంధ్రప్రదేశ్ &amp; తెలంగాణ అంతటా ఇన్సూరెన్స్, ఇన్వెస్ట్‌మెంట్ మరియు రియల్ ఎస్టేట్ అడ్వైజర్లు, ఫీల్డ్ ఏజెంట్ల కోసం మేము ఎప్పుడూ వెతుకుతూ ఉంటాము.</span><br>We are always looking for insurance, investment and real estate advisors and field agents across Andhra Pradesh &amp; Telangana.</p>
     </div>
-    <div class="career-video reveal">
-      <iframe src="https://www.youtube.com/embed/bc08O2UKTXg" title="Join the KNR Fortune team" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-    </div>
     <div class="career-wrap">
       <form class="career-form reveal" id="careerForm" novalidate>
         <div class="form-group">
@@ -1476,6 +1483,9 @@
         </div>
         <p id="careerStatus" role="status"></p>
       </form>
+      <div class="career-video reveal">
+        <iframe src="https://www.youtube.com/embed/bc08O2UKTXg" title="Join the KNR Fortune team" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
       <div class="career-benefits reveal">
         <h3>What You Get · మీకు లభించేవి</h3>
         <ul>
@@ -1483,6 +1493,7 @@
           <li><span class="cb-ic"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b class="te">పూర్తి ట్రైనింగ్ అందిస్తాము</b><span>Full training provided</span></div></li>
           <li><span class="cb-ic"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b class="te">ఫ్లెక్సిబుల్ వర్క్ — పార్ట్‌టైమ్ / ఫుల్‌టైమ్</b><span>Flexible work — part-time or full-time</span></div></li>
           <li><span class="cb-ic"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b class="te">మార్కెటింగ్ &amp; లీడ్ సపోర్ట్</b><span>Marketing &amp; lead support</span></div></li>
+          <li><span class="cb-ic"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b class="te">అర్హులైన టీమ్ సభ్యులకు అంతర్జాతీయ &amp; దేశీయ టూర్లు</b><span>International &amp; domestic trips for eligible team members</span></div></li>
           <li><span class="cb-ic"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b class="te">సకాలంలో, పారదర్శక చెల్లింపులు</b><span>Timely, transparent payouts</span></div></li>
           <li><span class="cb-ic"><svg fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><div><b class="te">IRDAI &amp; AMFI సర్టిఫైడ్ అడ్వైజర్ మార్గదర్శకత్వం</b><span>Guidance from a certified advisor (IRDAI &amp; AMFI)</span></div></li>
         </ul>

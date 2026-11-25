@@ -148,6 +148,11 @@
   }
   #navbar.scrolled{background:rgba(8,21,39,.96);backdrop-filter:blur(10px);box-shadow:0 8px 30px -12px rgba(0,0,0,.5);padding:10px 0;}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand-group{display:flex;align-items:center;gap:16px;}
+  .rs-top{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:linear-gradient(135deg,#7A2331,#4a1420);color:var(--gold-300);border:1px solid rgba(226,197,101,.55);border-radius:999px;padding:7px 14px;font-size:.76rem;font-weight:600;letter-spacing:.2px;box-shadow:0 8px 18px -10px rgba(0,0,0,.6);transition:transform .25s ease, max-height .25s ease, opacity .25s ease;}
+  .rs-top:hover{transform:translateY(-2px);color:#fff;}
+  .rs-top svg{width:15px;height:15px;flex-shrink:0;}
+  .rs-top .rs-arrow{font-size:.85rem;}
   .brand{display:flex;align-items:center;gap:12px;}
   .brand img{width:46px;height:46px;border-radius:50%;}
   .brand-text{display:flex;flex-direction:column;line-height:1.2;}
@@ -479,6 +484,7 @@
   .follow-btn.yt{background:#FF0000;}
   .follow-btn.ig{background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);}
   .follow-btn.fb{background:#1877F2;}
+  .follow-btn.xx{background:#000;border:1px solid rgba(255,255,255,.25);}
 
   /* ---------- CAREERS ---------- */
   #careers{background:var(--cream);}
@@ -511,6 +517,13 @@
   }
   #careers, #careers .te, #careers label, #careers input, #careers select, #careers button, #careers .eyebrow, #careers .career-benefits b{font-family:'Poppins','Ramabhadra',sans-serif;}
   #careers h2, #careers .career-benefits h3{font-family:'Playfair Display','Ramabhadra',serif;}
+  .brand-text, .nav-call, .nav-links a{white-space:nowrap;}
+  @media(max-width:1500px){ .nav-links{gap:22px;} }
+  @media(max-width:1179px){
+    .brand-group{flex-direction:column;align-items:flex-start;gap:6px;}
+    .rs-top{font-size:.7rem;padding:5px 11px;max-height:34px;}
+    #navbar.scrolled .rs-top{max-height:0;opacity:0;padding-top:0;padding-bottom:0;border-width:0;overflow:hidden;pointer-events:none;}
+  }
   /* ---------- HOW IT WORKS ---------- */
   #how{background:var(--white);}
   .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -806,13 +819,16 @@
 <!-- ============ NAV ============ -->
 <nav id="navbar">
   <div class="container nav-inner">
-    <a href="#hero" class="brand">
-      <img src="images/logo-small.png" alt="KNR Fortune Financial Services logo">
-      <div class="brand-text">
-        <b>KNR Fortune</b>
-        <span>Financial Services</span>
-      </div>
-    </a>
+    <div class="brand-group">
+      <a href="#hero" class="brand">
+        <img src="images/logo-small.png" alt="KNR Fortune Financial Services logo">
+        <div class="brand-text">
+          <b>KNR Fortune</b>
+          <span>Financial Services</span>
+        </div>
+      </a>
+      <a href="https://www.knrfortunefs.in/Redsandalfarmlands/" target="_blank" rel="noopener" class="rs-top" title="Red Sandal Farm Lands website"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22v-8M12 14c-4 0-7-3-7-7 4 0 7 3 7 7zM12 14c4 0 7-3 7-7-4 0-7 3-7 7z"/></svg>Red Sandal Farm Lands <span class="rs-arrow">&#8599;</span></a>
+    </div>
     <div class="nav-links">
       <a href="#hero">Home</a>
       <a href="#services">Services</a>
@@ -841,6 +857,7 @@
   <a href="#enquiry">Enquiry</a>
   <a href="#contact">Contact</a>
   <a href="#careers">Careers</a>
+  <a href="https://www.knrfortunefs.in/Redsandalfarmlands/" target="_blank" rel="noopener" style="color:#f0dfa0;">&#127795; Red Sandal Farm Lands &#8599;</a>
   <a href="tel:7416763565" style="color:#e2c565;">📞 7416763565</a>
 </div>
 
@@ -1134,7 +1151,7 @@
           <button class="svc-pill" onclick="waEnquire('Apartments')">Apartments</button>
         </div>
         <a href="https://wa.me/917416763565?text=Hi%2C%20I%27m%20interested%20in%20Real%20Estate" target="_blank" class="btn btn-navy btn-sm">Enquire on WhatsApp</a>
-        <a href="https://knrfortunefs-coder.github.io/Redsandalfarmlands/" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:10px;font-size:.78rem;color:var(--navy-800);font-weight:600;text-decoration:underline;">Red Sandal Farm Lands — more information ↗</a>
+        <a href="https://www.knrfortunefs.in/Redsandalfarmlands/" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:10px;font-size:.78rem;color:var(--navy-800);font-weight:600;text-decoration:underline;">Red Sandal Farm Lands — more information ↗</a>
       </div>
 
     </div>
@@ -1150,9 +1167,9 @@
         <h2>Want to know more about Red Sandal Farm Lands?</h2>
         <p class="te">ప్లాన్లు, ప్రాజెక్టులు, ఫోటోలు మరియు సైట్ విజిట్ బుకింగ్ — పూర్తి వివరాలు మా ప్రత్యేక వెబ్‌సైట్‌లో చూడండి.</p>
         <p>See the plans, projects and photos, and book a site visit, on our dedicated Red Sandal Farm Lands website.</p>
-        <a href="https://knrfortunefs-coder.github.io/Redsandalfarmlands/" target="_blank" rel="noopener" class="btn btn-gold">Visit Red Sandal Website ↗</a>
+        <a href="https://www.knrfortunefs.in/Redsandalfarmlands/" target="_blank" rel="noopener" class="btn btn-gold">Visit Red Sandal Website ↗</a>
       </div>
-      <div class="rs-logo"><img src="https://knrfortunefs-coder.github.io/Redsandalfarmlands/Images/logo.jpg" alt="Red Sandal Farm Lands Company" loading="lazy" onerror="this.parentNode.style.display='none'"></div>
+      <div class="rs-logo"><img src="https://www.knrfortunefs.in/Redsandalfarmlands/Images/logo.jpg" alt="Red Sandal Farm Lands Company" loading="lazy" onerror="this.parentNode.style.display='none'"></div>
     </div>
   </div>
 </section>
@@ -1326,6 +1343,7 @@
         <a href="https://www.youtube.com/@knrfortunefs?sub_confirmation=1" target="_blank" rel="noopener" class="follow-btn yt"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2C.5 9.1.5 12 .5 12s0 2.9.5 4.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.8.5-4.8s0-2.9-.5-4.8zM9.7 15.5v-7l6 3.5-6 3.5z"/></svg>Subscribe on YouTube</a>
         <a href="https://www.instagram.com/knrfortunefs" target="_blank" rel="noopener" class="follow-btn ig"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Follow on Instagram</a>
         <a href="https://www.facebook.com/knrfortunefinancialservices" target="_blank" rel="noopener" class="follow-btn fb"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.5-3.3h-3.2V8.6c0-.9.4-1.7 1.8-1.7h1.5V4.1S15.5 3.9 14.2 3.9c-2.7 0-4.4 1.6-4.4 4.5v2.3H7v3.3h2.8v8h3.7z"/></svg>Follow our Facebook Page</a>
+        <a href="https://x.com/KNRFORTUNEFS" target="_blank" rel="noopener" class="follow-btn xx"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow on X (Twitter)</a>
       </div>
     </div>
 
@@ -1681,6 +1699,7 @@
           <li><a href="#enquiry">Enquiry</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#careers">Careers</a></li>
+          <li><a href="https://www.knrfortunefs.in/Redsandalfarmlands/" target="_blank" rel="noopener">Red Sandal Farm Lands ↗</a></li>
         </ul>
       </div>
       <div>
@@ -1690,7 +1709,7 @@
           <li><a href="#services">Mutual Funds</a></li>
           <li><a href="#services">Loan Services</a></li>
           <li><a href="#services">Real Estate</a></li>
-          <li><a href="https://knrfortunefs-coder.github.io/Redsandalfarmlands/" target="_blank" rel="noopener">Red Sandal Farm Lands ↗</a></li>
+          <li><a href="https://www.knrfortunefs.in/Redsandalfarmlands/" target="_blank" rel="noopener">Red Sandal Farm Lands ↗</a></li>
         </ul>
       </div>
       <div>

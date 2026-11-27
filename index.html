@@ -66,12 +66,12 @@
 <meta name="apple-mobile-web-app-title" content="KNR Fortune FS">
 <meta name="theme-color" content="#081527">
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R48CWG2GEP"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-25NJKXJT7T"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-R48CWG2GEP');
+  gtag('config', 'G-25NJKXJT7T');
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Ramabhadra&display=swap" rel="stylesheet">
@@ -1771,6 +1771,21 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Google Analytics events (no personal data is ever sent)
+  function trackEvent(name, params){
+    try{ if(typeof gtag === 'function') gtag('event', name, params || {}); }catch(e){}
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if(!a) return;
+    var h = a.getAttribute('href') || '';
+    if(h.indexOf('tel:') === 0) trackEvent('call_click', { link_url: h });
+    else if(h.indexOf('wa.me/') > -1) trackEvent('whatsapp_click', { source: 'link' });
+    else if(h.indexOf('Redsandalfarmlands') > -1) trackEvent('redsandal_click', { link_url: h });
+    else if(/instagram\.com|facebook\.com|youtube\.com|x\.com|threads\.com|t\.me/.test(h)) trackEvent('social_click', { link_url: h });
+    else if(/njw\.bz|tinyurl\.com|careinsurance\.com/.test(h)) trackEvent('partner_link_click', { link_url: h });
+  });
+
   // rotating service pill below logo
   (function(){
     const services = ["Life Insurance", "Health Insurance", "Motor Insurance", "Mutual Funds", "Loan Services", "Real Estate"];
@@ -1828,6 +1843,7 @@
     function val(id){ return (document.getElementById(id).value || '').trim(); }
     function say(msg, ok){ st.style.display = 'block'; st.style.color = ok ? '#1a7f37' : '#d9534f'; st.textContent = msg; }
     document.getElementById('careerWA').addEventListener('click', function(){
+      trackEvent('whatsapp_click', { source: 'career_form' });
       var lines = ["Hi, I'd like to join the KNR Fortune Financial Services team."];
       [['Name','cname'],['Mobile','cphone'],['City','ccity'],['Occupation','coccupation'],['Interested in','cinterest']].forEach(function(x){
         var v = val(x[1]); if(v) lines.push(x[0] + ': ' + v);
@@ -1853,6 +1869,7 @@
           })
         });
         if(!res.ok) throw new Error('send failed');
+        trackEvent('generate_lead', { form_name: 'career' });
         say('\u2713 Application submitted! Our team will reach out soon. · దరఖాస్తు సమర్పించబడింది!', true);
         form.reset();
       } catch(err){
@@ -1873,6 +1890,7 @@
 
   // loan / real-estate sub-option quick enquire
   function waEnquire(product){
+    trackEvent('whatsapp_click', { source: 'service_pill', product: product });
     const msg = encodeURIComponent(`Hi, I'm interested in ${product}`);
     window.open(`https://wa.me/917416763565?text=${msg}`, '_blank');
   }
@@ -1913,6 +1931,7 @@
       });
 
       if(res.ok){
+        trackEvent('generate_lead', { form_name: 'enquiry', product: document.getElementById('fproduct').value });
         statusEl.style.display = 'block';
         statusEl.style.color = '#1a7f37';
         statusEl.textContent = 'Thank you! Your enquiry has been sent to our team by email — we will contact you shortly.';
